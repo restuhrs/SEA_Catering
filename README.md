@@ -37,6 +37,8 @@ Pastikan database sudah dibuat, lalu jalankan:
 
 - php artisan migrate:fresh --seed
 
+Untuk testing data subscription di admin dashboard rekomendasi range filter 01/06/2025 - 30/06/2025
+
 5. Jalankan Server Lokal
 
 - php artisan serve
