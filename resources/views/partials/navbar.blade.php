@@ -41,6 +41,7 @@
                         <button type="submit" class="w-fit text-left bg-gradient-to-r from-green-400 to-green-600 hover:from-green-300 hover:to-green-500 hover:text-green-800 border border-white py-1 px-4 rounded-2xl transition">Logout</button>
                     </form>
                 @else
+                    <i data-lucide="log-in" class="w-5 h-5"></i>
                     <a href="{{ route('login') }}" class="block w-fit bg-white text-green-700 px-4 py-1 rounded-2xl hover:bg-gray-100 transition">Login</a>
                 @endauth
             </li>
