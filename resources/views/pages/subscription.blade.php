@@ -89,8 +89,8 @@
             <input type="hidden" name="total_price" id="total_price_input" />
             <div id="result" class="mt-6 text-center text-xl font-semibold"></div>
 
-            <div class="flex justify-between">
-                <button type="button" onclick="calculateTotal()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mr-4">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-3 mb-4">
+                <button type="button" onclick="calculateTotal()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
                     Calculate Total
                 </button>
 
@@ -99,7 +99,7 @@
                 </button>
             </div>
 
-            <div class="flex justify-between">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-3">
                 <button type="button" onclick="showDetails()" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-800">
                     Check Order
                 </button>
