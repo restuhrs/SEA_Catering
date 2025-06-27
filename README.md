@@ -59,6 +59,7 @@ Akses: http://localhost:8000
 📖 Cek history berlangganan
 📅 Sistem berlangganan aktif dan nonaktif otomatis sesuai tanggal pemesanan
 
+--------------------------------------
 
 🔐 Akun Demo
 
@@ -72,6 +73,10 @@ Password: @Password123 (perhatikan besar kecil huruf)
 Email: customer@example.com
 Password: @Password123 (perhatikan besar kecil huruf)
 
+--------------------------------------
+
+Tips
+Jika setelah subscribe kemudian cek subscription history tidak muncul, refresh page
 
 📄 License
 MIT License © Restu Kharisma 
