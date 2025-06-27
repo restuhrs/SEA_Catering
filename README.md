@@ -15,11 +15,15 @@ Sistem langganan makanan sehat menggunakan Laravel. Platform ini mendukung admin
 2. Install Dependency
 
 - composer install
-- npm install && npm run dev
+- npm install 
+
+⚠️ Jalankan npm run build jika folder public/build belum tersedia atau tidak ikut di-commit:
+- npm run build
 
 3. Konfigurasi Environment
 
-Copy file .env.example ke .env dan sesuaikan pengaturannya seperti (port, password, dll), karena saya menggunakan MAMP maka portnya "8889" dan password "root":
+Copy file .env.example ke .env dan sesuaikan pengaturannya seperti (port, password, database, dll), 
+karena saya menggunakan MAMP maka portnya "8889" dan password "root":
 
 - cp .env.example .env
 
