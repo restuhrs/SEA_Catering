@@ -15,6 +15,9 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
+    <!-- Lucide icon -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <!-- Tailwind + JS -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

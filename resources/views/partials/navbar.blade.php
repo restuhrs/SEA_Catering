@@ -12,17 +12,30 @@
      class="fixed inset-y-0 right-0 w-64 bg-green-600 text-white transform translate-x-full transition-transform ease-in-out duration-300 z-50 md:hidden overflow-y-auto">
     <div class="p-4">
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl font-bold">Menu</h2>
+            <h2 class="text-xl font-bold">SEA Catering</h2>
             <button id="closeSidebar" class="text-white text-2xl font-bold">&times;</button>
         </div>
         <ul class="space-y-3">
-            <li><a href="/home" class="block hover:underline">Home</a></li>
-            <li><a href="/meal-plans" class="block hover:underline">Meal Plans</a></li>
-            <li><a href="/testimonials" class="block hover:underline">Testimonials</a></li>
-            <li><a href="/subscription" class="block hover:underline mb-4">Subscribe</a></li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                <a href="/home" class="block hover:underline">Home</a>
+            </li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                <a href="/meal-plans" class="block hover:underline">Meal Plans</a>
+            </li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="users-round" class="w-5 h-5"></i>
+                <a href="/testimonials" class="block hover:underline">Testimonials</a>
+            </li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="bookmark-check" class="w-5 h-5"></i>
+                <a href="/subscription" class="block hover:underline">Subscribe</a>
+            </li>
 
-            <li>
+            <li class="flex items-center gap-2">
                 @auth
+                    <i data-lucide="log-out" class="w-5 h-5"></i>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="w-fit text-left bg-gradient-to-r from-green-400 to-green-600 hover:from-green-300 hover:to-green-500 hover:text-green-800 border border-white py-1 px-4 rounded-2xl transition">Logout</button>
@@ -112,5 +125,10 @@
         sidebar.classList.add('translate-x-full');
         overlay.classList.add('hidden');
     });
+</script>
+
+<!-- icon sidebar -->
+<script>
+    lucide.createIcons();
 </script>
 @endpush

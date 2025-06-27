@@ -18,13 +18,22 @@
         </div>
 
         <ul class="space-y-4">
-            <!-- Tambahkan item menu -->
-            <li><a href="#reports" class="hover:underline">Reports</a></li>
-            <li><a href="#subscription-chart" class="hover:underline">Chart</a></li>
-            <li><a href="#recent-subscriptions" class="hover:underline">Table</a></li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="scroll-text" class="w-5 h-5"></i>
+                <a href="#reports" class="hover:underline">Reports</a>
+            </li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                <a href="#subscription-chart" class="hover:underline">Chart</a>
+            </li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="table" class="w-5 h-5"></i>
+                <a href="#recent-subscriptions" class="hover:underline">Table</a>
+            </li>
 
             @auth
-            <li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="log-out" class="w-5 h-5"></i>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit"
@@ -38,7 +47,7 @@
     </div>
 </aside>
 
-<!-- Sidebar Menu (hidden by default, only on mobile) -->
+<!-- Sidebar (Mobile only) -->
 <div id="sidebarMenu"
      class="fixed inset-y-0 right-0 w-64 bg-green-700 text-white transform translate-x-full transition-transform ease-in-out duration-300 z-50 md:hidden overflow-y-auto">
     <div class="p-4">
@@ -47,21 +56,34 @@
             <button id="closeSidebar" class="text-white text-2xl font-bold">&times;</button>
         </div>
         <ul class="space-y-3">
-            <li><a href="#reports" class="block hover:underline">Reports</a></li>
-            <li><a href="#subscription-chart" class="block hover:underline">Chart</a></li>
-            <li><a href="#recent-subscriptions" class="block hover:underline">Table</a></li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="scroll-text" class="w-5 h-5"></i>
+                <a href="#reports" class="block hover:underline">Reports</a>
+            </li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                <a href="#subscription-chart" class="block hover:underline">Chart</a>
+            </li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="table" class="w-5 h-5"></i>
+                <a href="#recent-subscriptions" class="block hover:underline">Table</a>
+            </li>
 
             @auth
-                <li>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="w-fit text-left bg-gradient-to-r from-green-400 to-green-600 hover:from-green-300 hover:to-green-500 hover:text-green-800 border border-white py-1 px-4 rounded-2xl transition">Logout</button>
-                    </form>
-                </li>
+            <li class="flex items-center gap-2">
+                <i data-lucide="log-out" class="w-5 h-5"></i>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="w-fit text-left bg-gradient-to-r from-green-400 to-green-600 hover:from-green-300 hover:to-green-500 hover:text-green-800 border border-white py-1 px-4 rounded-2xl transition">
+                        Logout
+                    </button>
+                </form>
+            </li>
             @endauth
         </ul>
     </div>
 </div>
+
 
 
 <!-- Overlay -->
@@ -126,6 +148,11 @@
         mainContent.classList.add('md:ml-0');
     });
 
+</script>
+
+<!-- icon sidebar -->
+<script>
+    lucide.createIcons();
 </script>
 
 @endpush
