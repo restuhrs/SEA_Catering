@@ -50,19 +50,22 @@
         <h3 class="text-3xl font-bold mb-12 text-green-900">Our Services</h3>
         <div class="grid md:grid-cols-3 gap-8">
             <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-                <!-- <img src="https://source.unsplash.com/80x80/?custom,menu" class="mx-auto mb-4" alt=""> -->
+                <img src="{{ asset('storage/assets/images/customize-menu.jpg') }}" alt=""
+                     class="h-48 w-full object-cover rounded-lg mb-4">
                 <h4 class="font-semibold text-lg mb-2">Meal Customization</h4>
-                <p class="text-gray-600">Choose meals based on your preferences and dietary goals.</p>
+                <p class="text-gray-600">Pick meals that suit your taste and health goals.</p>
             </div>
             <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-                <!-- <img src="https://source.unsplash.com/80x80/?delivery,box" class="mx-auto mb-4" alt=""> -->
+                <img src="{{ asset('storage/assets/images/delivery-food.jpg') }}" alt=""
+                     class="h-48 w-full object-cover rounded-lg mb-4">
                 <h4 class="font-semibold text-lg mb-2">Nationwide Delivery</h4>
-                <p class="text-gray-600">Reliable delivery to major cities across Indonesia.</p>
+                <p class="text-gray-600">Fast and reliable delivery to cities all over Indonesia.</p>
             </div>
             <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-                <!-- <img src="https://source.unsplash.com/80x80/?nutrition,chart" class="mx-auto mb-4" alt=""> -->
+                <img src="{{ asset('storage/assets/images/nutrition.jpg') }}" alt=""
+                     class="h-48 w-full object-cover rounded-lg mb-4">
                 <h4 class="font-semibold text-lg mb-2">Nutrition Information</h4>
-                <p class="text-gray-600">Know your food: calories, macros, and ingredients.</p>
+                <p class="text-gray-600">Learn what’s in your meals from calories to nutrients.</p>
             </div>
         </div>
     </div>
