@@ -140,11 +140,17 @@
                                 {{ implode(', ', $formattedDates) }}
                             </td>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="5" class="p-4 text-center text-gray-500">No subscriptions found.</td>
+
+                        @empty
+                            <tr>
+                                <td colspan="7" class="p-4 text-center text-gray-500">No subscriptions found.</td>
+                            </tr>
+                        @endforelse
+
+                        <!-- no result row -->
+                        <tr id="noResultRow" class="hidden">
+                            <td colspan="7" class="p-4 text-center text-gray-500">No results found.</td>
                         </tr>
-                    @endforelse
                 </tbody>
             </table>
 
@@ -203,9 +209,10 @@
     }
 </script>
 
-<!-- paginate -->
+<!-- paginate & seacrh bar -->
 <script>
-    const tableRows = Array.from(document.querySelectorAll('#subscriptionTableBody tr'));
+    let allRows = [];
+    let currentRows = [];
     const perPage = 5;
     let currentPage = 1;
 
@@ -213,16 +220,25 @@
         const start = (page - 1) * perPage;
         const end = start + perPage;
 
-        tableRows.forEach((row, index) => {
+        // Tampilkan/hilangkan baris yang sedang dicari
+        currentRows.forEach((row, index) => {
             row.style.display = (index >= start && index < end) ? '' : 'none';
         });
 
-        // Info text
+        // Tampilkan/hidden "no result" row
+        const noResultRow = document.getElementById('noResultRow');
+        if (currentRows.length === 0) {
+            if (noResultRow) noResultRow.classList.remove('hidden');
+        } else {
+            if (noResultRow) noResultRow.classList.add('hidden');
+        }
+
+        // Update info pagination
         document.getElementById('paginationInfo').innerHTML = `
-            Showing ${Math.min(start + 1, tableRows.length)} to ${Math.min(end, tableRows.length)} of ${tableRows.length} entries
+            Showing ${currentRows.length === 0 ? 0 : Math.min(start + 1, currentRows.length)} to ${Math.min(end, currentRows.length)} of ${currentRows.length} entries
         `;
 
-        const totalPages = Math.ceil(tableRows.length / perPage);
+        const totalPages = Math.ceil(currentRows.length / perPage);
         const paginationControls = document.getElementById('paginationControls');
         paginationControls.innerHTML = '';
 
@@ -230,7 +246,6 @@
             const nav = document.createElement('nav');
             nav.className = 'flex items-center space-x-1';
 
-            // Previous button
             const prevBtn = document.createElement('button');
             prevBtn.innerHTML = '&laquo;';
             prevBtn.className = `px-3 py-1 rounded-full border ${page === 1 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'hover:bg-green-100 text-green-600'}`;
@@ -238,20 +253,16 @@
             prevBtn.onclick = () => renderTablePage(currentPage - 1);
             nav.appendChild(prevBtn);
 
-            // Number buttons
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
                 btn.textContent = i;
                 btn.className = `w-8 h-8 rounded-full border text-sm ${
-                    i === page
-                        ? 'bg-green-600 text-white'
-                        : 'text-gray-600 hover:bg-green-100'
+                    i === page ? 'bg-green-600 text-white' : 'text-gray-600 hover:bg-green-100'
                 }`;
                 btn.onclick = () => renderTablePage(i);
                 nav.appendChild(btn);
             }
 
-            // Next button
             const nextBtn = document.createElement('button');
             nextBtn.innerHTML = '&raquo;';
             nextBtn.className = `px-3 py-1 rounded-full border ${page === totalPages ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'hover:bg-green-100 text-green-600'}`;
@@ -265,26 +276,23 @@
         currentPage = page;
     }
 
-    // Re-render when searching
     function filterSubscriptions() {
-        const input = document.getElementById('subscriptionSearch');
-        const filter = input.value.toLowerCase();
+        const filter = document.getElementById('subscriptionSearch').value.toLowerCase();
 
-        tableRows.forEach(row => {
-            row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none';
-        });
-
-        // Refresh pagination based on visible rows
-        const visibleRows = tableRows.filter(row => row.style.display !== 'none');
-        visibleRows.forEach((row, idx) => {
-            row.dataset.visibleIndex = idx;
+        currentRows = allRows.filter(row => {
+            const match = row.textContent.toLowerCase().includes(filter);
+            row.style.display = match ? '' : 'none';
+            return match;
         });
 
         renderTablePage(1);
     }
 
-    // Initial render
-    document.addEventListener('DOMContentLoaded', () => renderTablePage(1));
+    document.addEventListener('DOMContentLoaded', () => {
+        allRows = Array.from(document.querySelectorAll('#subscriptionTableBody tr')).filter(row => !row.id || row.id !== 'noResultRow');
+        currentRows = [...allRows];
+        renderTablePage(1);
+    });
 </script>
 
 @endpush
