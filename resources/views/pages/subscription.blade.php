@@ -124,6 +124,7 @@
                                         <li><strong>Phone:</strong> {{ $subs->phone }}</li>
                                         <li><strong>Plan:</strong> {{ ucwords(str_replace('_', ' ', $subs->plan)) }}</li>
                                         <li><strong>Meal Types:</strong> {{ implode(', ', (array)$subs->meal_types) }}</li>
+                                        <li><strong>Allergies:</strong> {{ $subs->allergies ?? '-' }}</li>
                                         <li><strong>Delivery:</strong>
                                             {{ collect($subs->delivery_days)->map(fn($d) => \Carbon\Carbon::parse($d)->format('l (d M Y)'))->join(', ') }}
                                         </li>
@@ -149,6 +150,7 @@
                     <li><strong>Phone:</strong> <span id="detailPhone"></span></li>
                     <li><strong>Plan:</strong> <span id="detailPlan"></span></li>
                     <li><strong>Meal Type:</strong> <span id="detailMeals"></span></li>
+                    <li><strong>Allergies:</strong> <span id="detailAllergies"></span></li>
                     <li><strong>Delivery:</strong> <span id="detailDays"></span></li>
                     <li><span id="detailTotal"></span></li>
                 </ul>
@@ -237,6 +239,7 @@
         const phone = document.querySelector('[name="phone"]').value;
         const plan = document.querySelector('#plan').selectedOptions[0].text;
         const meals = Array.from(document.querySelectorAll('.meal-type:checked')).map(cb => cb.value).join(', ');
+        const allergies = document.querySelector('[name="allergies"]').value;
         const days = Array.from(document.querySelectorAll('.delivery-day:checked')).map(cb => cb.nextElementSibling.textContent).join(', ');
         const total = document.getElementById('result').textContent;
 
@@ -244,6 +247,7 @@
         document.getElementById('detailPhone').textContent = phone;
         document.getElementById('detailPlan').textContent = plan;
         document.getElementById('detailMeals').textContent = meals;
+        document.getElementById('detailAllergies').textContent = allergies || '-';
         document.getElementById('detailDays').textContent = days;
         document.getElementById('detailTotal').textContent = total;
 
