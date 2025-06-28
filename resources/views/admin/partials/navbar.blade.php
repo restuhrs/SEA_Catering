@@ -11,28 +11,35 @@
 
 <!-- Desktop Sidebar (only for md and above) -->
 <aside id="desktopSidebar" class="hidden md:block fixed top-0 left-0 h-full w-64 bg-green-700 text-white z-40 transform -translate-x-full transition-transform duration-300 ease-in-out">
-    <div class="p-6">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold">SEA Catering</h2>
-            <button id="desktopCloseSidebar" class="text-white text-2xl font-bold">&times;</button>
+    <div class="p-4">
+        <div class="flex justify-end">
+            <button id="desktopCloseSidebar" class="text-white text-2xl font-bold hover:text-red-400">&times;</button>
         </div>
 
-        <ul class="space-y-4">
-            <li class="flex items-center gap-2">
+        <div class="flex justify-between items-center mb-6">
+            <div class="flex items-center space-x-4">
+                <img src="{{ asset('storage/assets/images/logo.jpg') }}" alt="SEA logo" class="w-10 h-10 rounded-full object-cover">
+                <h2 class="text-xl font-bold">SEA Catering</h2>
+            </div>
+
+        </div>
+
+        <ul class="space-y-4 mt-8">
+            <li class="flex items-center gap-4">
                 <i data-lucide="scroll-text" class="w-5 h-5"></i>
                 <a href="#reports" class="hover:underline">Reports</a>
             </li>
-            <li class="flex items-center gap-2">
+            <li class="flex items-center gap-4">
                 <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
                 <a href="#subscription-chart" class="hover:underline">Chart</a>
             </li>
-            <li class="flex items-center gap-2">
+            <li class="flex items-center gap-4">
                 <i data-lucide="table" class="w-5 h-5"></i>
                 <a href="#recent-subscriptions" class="hover:underline">Table</a>
             </li>
 
             @auth
-            <li class="flex items-center gap-2">
+            <li class="flex items-center gap-4">
                 <i data-lucide="log-out" class="w-5 h-5"></i>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -51,26 +58,32 @@
 <div id="sidebarMenu"
      class="fixed inset-y-0 right-0 w-64 bg-green-700 text-white transform translate-x-full transition-transform ease-in-out duration-300 z-50 md:hidden overflow-y-auto">
     <div class="p-4">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl font-bold">SEA Catering</h2>
-            <button id="closeSidebar" class="text-white text-2xl font-bold">&times;</button>
+        <div class="flex justify-end">
+            <button id="closeSidebar" class="text-white text-2xl font-bold hover:text-red-400">&times;</button>
         </div>
-        <ul class="space-y-3">
-            <li class="flex items-center gap-2">
+        <div class="flex justify-between items-center mb-4">
+            <div class="flex items-center space-x-4">
+                <img src="{{ asset('storage/assets/images/logo.jpg') }}" alt="SEA logo" class="w-10 h-10 rounded-full object-cover">
+                <h2 class="text-xl font-bold">SEA Catering</h2>
+            </div>
+        </div>
+
+        <ul class="space-y-3 mt-8">
+            <li class="flex items-center gap-4">
                 <i data-lucide="scroll-text" class="w-5 h-5"></i>
                 <a href="#reports" class="block hover:underline">Reports</a>
             </li>
-            <li class="flex items-center gap-2">
+            <li class="flex items-center gap-4">
                 <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
                 <a href="#subscription-chart" class="block hover:underline">Chart</a>
             </li>
-            <li class="flex items-center gap-2">
+            <li class="flex items-center gap-4">
                 <i data-lucide="table" class="w-5 h-5"></i>
                 <a href="#recent-subscriptions" class="block hover:underline">Table</a>
             </li>
 
             @auth
-            <li class="flex items-center gap-2">
+            <li class="flex items-center gap-4">
                 <i data-lucide="log-out" class="w-5 h-5"></i>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

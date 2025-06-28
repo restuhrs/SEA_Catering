@@ -159,6 +159,9 @@
         function updateCharCount() {
             const textarea = document.getElementById('review');
             const counter = document.getElementById('charCount');
+
+            if (!textarea || !counter) return;
+
             const length = textarea.value.length;
             counter.textContent = `${length} / 200`;
         }
