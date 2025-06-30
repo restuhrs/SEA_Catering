@@ -39,7 +39,13 @@ Pastikan database sudah dibuat, lalu jalankan:
 
 Untuk testing data subscription di admin dashboard rekomendasi range filter 01/06/2025 - 30/06/2025
 
-5. Jalankan Server Lokal
+5. Buat Symbolic Link ke Storage
+
+Agar file gambar dan aset yang disimpan di storage/app/public bisa diakses setelah clone
+
+- php artisan storage:link
+
+6. Jalankan Server Lokal
 
 - php artisan serve
 
