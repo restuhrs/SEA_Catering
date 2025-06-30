@@ -45,21 +45,21 @@ Agar file gambar dan aset yang disimpan di storage/app/public bisa diakses setel
 
 - php artisan storage:link
 
-6. Jalankan Server Lokal
-
-- php artisan serve
-
-Akses: http://localhost:8000
-
-7. tambahkan role pada vendor/laravel/framework/src/Foundation/Http/Kernel.php
+6. tambahkan role pada vendor/laravel/framework/src/Foundation/Http/Kernel.php
 
 - 'role' => \App\Http\Middleware\CheckRole::class,
 
 tambahkan pada protected $routeMiddleware seperti berikut:
 
 protected $routeMiddleware = [
-        'role' => \App\Http\Middleware\CheckRole::class,
-    ];
+    'role' => \App\Http\Middleware\CheckRole::class,
+];
+
+7. Jalankan Server Lokal
+
+- php artisan serve
+
+Akses: http://localhost:8000
 
 --------------------------------------
 
