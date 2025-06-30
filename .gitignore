@@ -1,27 +1,26 @@
-*.log
-.DS_Store
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
-/.fleet
-/.idea
-/.nova
-/.phpunit.cache
-/.vscode
-/.zed
-/auth.json
+# Laravel default
+/vendor
 /node_modules
-/public/build
 /public/hot
 /public/storage
 /storage/*.key
-/storage/pail
-/vendor
+/.idea
+/.vscode
+.env
+.env.backup
+.env.testing
 Homestead.json
 Homestead.yaml
-Thumbs.db
-# Allow public assets to be tracked
-!/storage/app/public/assets
+npm-debug.log
+yarn-error.log
+.phpunit.result.cache
+.php-cs-fixer.cache
+
+# Laravel storage — ignore everything first
+/storage/*
+
+# ...except public assets
+!/storage/app/
+!/storage/app/public/
+!/storage/app/public/assets/
 !/storage/app/public/assets/**
