@@ -22,3 +22,6 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+# Allow public assets to be tracked
+!/storage/app/public/assets
+!/storage/app/public/assets/**
